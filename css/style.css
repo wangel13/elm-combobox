@@ -1,0 +1,61 @@
+.combo-test .combobox {
+  margin-bottom: 30px;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: 0 none;
+  outline-color: none;
+}
+
+/* Combobox main style */
+.combobox {
+  position: relative;
+}
+
+.combobox input {
+  width: 100%;
+  padding: 5px;
+}
+
+.combobox .combobox-list {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.combobox .combobox-list .combobox-list-item {
+  border-bottom: 1px solid #C3C3C3;
+  border-right: 1px solid #C3C3C3;
+  border-left: 1px solid #C3C3C3;
+  padding: 5px;
+  color: #000;
+}
+
+.combobox .combobox-list .combobox-list-item:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.combobox .combobox-list .combobox-list-item.combobox-active {
+  background: #f2f2f2;
+}
+
+/* END Combobox main style */
