@@ -41,12 +41,14 @@ update action model =
                , curTakeOption <- 0
                , dataModified  <-
                    let val' = String.toUpper val
-                   in List.take model.listTake <| List.filter (\x -> String.contains val' (String.toUpper x)) model.dataList
+                   in List.take model.listTake
+                         <| List.filter (\x -> String.startsWith val' (String.toUpper x)) model.dataList
+                            ++ List.filter (\x -> not ( String.startsWith val' (String.toUpper x) ) && String.contains val' (String.toUpper x) ) model.dataList
               }
       Choose val ->
-        {model | dataCurrent <- val
+        {model | dataCurrent   <- val
                 ,curTakeOption <- 0
-                ,isEdited    <- False
+                ,isEdited      <- False
         }
       KeyUp key -> let len = List.length model.dataModified
         in if | key == 40  -> {model | curTakeOption <- (if model.curTakeOption + 1 < len then model.curTakeOption + 1 else model.curTakeOption)}
@@ -62,9 +64,9 @@ update action model =
 
 -- VIEW
 
-view : LC.LocalChannel Action -> Model -> Html
-view chan model =
-  div [class "combobox"] [
+view : List Attribute -> LC.LocalChannel Action -> Model -> Html
+view attributes chan model =
+  div (attributes) [
     input [
       type' "text"
       , value model.dataCurrent

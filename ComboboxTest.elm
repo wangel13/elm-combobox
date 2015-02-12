@@ -20,7 +20,7 @@ type Action = NoOp
             | ComboAction2 Combobox.Action
 
 initialModel = { combo1 = Combobox.initialModel Countries.list 10
-               , combo2 = Combobox.initialModel Countries.list  5 }
+               , combo2 = Combobox.initialModel Countries.list  5}
 
 -- VIEW
 
@@ -28,9 +28,9 @@ view : Model -> Html
 view model = div [class "container combo-test"]
   [ h2 [] [text "Combobox example (countries example)"]
   , h3 [] [text "Combobox 1"]
-  , Combobox.view (LC.create ComboAction1 actionChannel) model.combo1
+  , Combobox.view [class "combobox custom-skin1"] (LC.create ComboAction1 actionChannel) model.combo1
   , h3 [] [text "Combobox 2"]
-  , Combobox.view (LC.create ComboAction2 actionChannel) model.combo2
+  , Combobox.view [class "combobox custom-skin2"] (LC.create ComboAction2 actionChannel) model.combo2
   ]
 
 main : Signal Html
