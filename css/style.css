@@ -59,3 +59,32 @@ input[type="color"]:focus,
 }
 
 /* END Combobox main style */
+/* custom-skin1 */
+.custom-skin1 input{
+  background: #212026;
+  border: 1px solid #383840;
+  color: #676673;
+}
+
+.custom-skin1 .combobox-list {
+  background: #212026;
+}
+
+.custom-skin1 .combobox-list .combobox-list-item {
+  border-bottom: 1px solid #383840;
+  border-right: 1px solid #383840;
+  border-left: 1px solid #383840;
+  padding: 5px;
+  color: #676673;
+}
+
+.combobox .combobox-list .combobox-list-item:hover {
+  background: #B8B8BF;
+  cursor: pointer;
+}
+
+.combobox .combobox-list .combobox-list-item.combobox-active {
+  background: #B8B8BF;
+}
+
+/* END custom-skin1 */
