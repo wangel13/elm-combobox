@@ -802,13 +802,23 @@ Elm.Combobox.make = function (_elm) {
                               ,["dataModified"
                                ,function () {
                                   var val$ = $String.toUpper(_v0._0);
-                                  return $List.take(model.listTake)(A2($List.filter,
+                                  return $List.take(model.listTake)(A2($Basics._op["++"],
+                                  A2($List.filter,
                                   function (x) {
-                                     return A2($String.contains,
+                                     return A2($String.startsWith,
                                      val$,
                                      $String.toUpper(x));
                                   },
-                                  model.dataList));
+                                  model.dataList),
+                                  A2($List.filter,
+                                  function (x) {
+                                     return $Basics.not(A2($String.startsWith,
+                                     val$,
+                                     $String.toUpper(x))) && A2($String.contains,
+                                     val$,
+                                     $String.toUpper(x));
+                                  },
+                                  model.dataList)));
                                }()]],
               model);
             case "Choose":
@@ -887,10 +897,11 @@ Elm.Combobox.make = function (_elm) {
       return {ctor: "ChangeDataCurrent"
              ,_0: a};
    };
-   var view = F2(function (chan,
+   var view = F3(function (attributes,
+   chan,
    model) {
       return A2($Html.div,
-      _L.fromArray([$Html$Attributes.$class("combobox")]),
+      attributes,
       _L.fromArray([A2($Html.input,
                    _L.fromArray([$Html$Attributes.type$("text")
                                 ,$Html$Attributes.value(model.dataCurrent)
@@ -1007,7 +1018,8 @@ Elm.ComboboxTest.make = function (_elm) {
                    ,A2($Html.h3,
                    _L.fromArray([]),
                    _L.fromArray([$Html.text("Combobox 1")]))
-                   ,A2($Combobox.view,
+                   ,A3($Combobox.view,
+                   _L.fromArray([$Html$Attributes.$class("combobox custom-skin1")]),
                    A2($LocalChannel.create,
                    ComboAction1,
                    actionChannel),
@@ -1015,7 +1027,8 @@ Elm.ComboboxTest.make = function (_elm) {
                    ,A2($Html.h3,
                    _L.fromArray([]),
                    _L.fromArray([$Html.text("Combobox 2")]))
-                   ,A2($Combobox.view,
+                   ,A3($Combobox.view,
+                   _L.fromArray([$Html$Attributes.$class("combobox custom-skin2")]),
                    A2($LocalChannel.create,
                    ComboAction2,
                    actionChannel),
