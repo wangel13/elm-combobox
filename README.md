@@ -1,5 +1,4 @@
-# elm-bootstrap-boilerplate ([example](http://wangel-satar.github.io/elm-combobox/))
-Elm-lang + Bootstrap Html boilerplate
+# elm-combobox ([example](http://wangel-satar.github.io/elm-combobox/))
 
 ## How to use
 
